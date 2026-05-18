@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NNTools.vn | Giải Pháp Tự Động Hóa & Thiết Kế Tủ Bảng Điện</title>
+
+    <!-- Tối ưu SEO cơ bản -->
+    <meta name="description" content="NNTools.vn - Nền tảng cung cấp giải pháp thiết kế tủ bảng điện, công cụ tự động hóa AutoLISP, VBA, C# và phần mềm in hàng loạt Batch Plot Pro (ABP) cho kỹ sư.">
+    <meta name="keywords" content="thiết kế tủ điện, tự động hóa AutoCAD, AutoLISP, VBA, C#, in hàng loạt, Batch Plot Pro, ABP, phần mềm kỹ thuật, NNTools">
+    <meta name="author" content="Nhất Nguyễn">
+    <link rel="canonical" href="https://nntools.vn/" />
+
+    <!-- Tối ưu SEO Open Graph (Hiển thị đẹp khi share Zalo, Facebook, LinkedIn) -->
+    <meta property="og:title" content="NNTools.vn | Giải Pháp Tự Động Hóa & Thiết Kế Tủ Bảng Điện">
+    <meta property="og:description" content="Cung cấp công cụ tự động hóa mạnh mẽ và giải pháp kỹ thuật chuyên sâu. Tối ưu hóa thiết kế, bóc tách khối lượng và triển khai bản vẽ công nghiệp, hàng hải.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581092335397-9583eb92d232?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://nntools.vn/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NNTools.vn">
+
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary-color: #0b3b60; /* Xanh Navy kỹ thuật */
+            --secondary-color: #f4f7f6; /* Xám nhạt */
+            --accent-color: #ff8c00; /* Cam nổi bật cho nút bấm */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(11, 59, 96, 0.8), rgba(11, 59, 96, 0.8)), url('https://images.unsplash.com/photo-1581092335397-9583eb92d232?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e07b00;
+        }
+
+        /* Services/Solutions Section */
+        .solutions {
+            padding: 60px 5%;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* About/Tech Section */
+        .tech-stack {
+            padding: 60px 5%;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .tech-stack p {
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #06233b;
+            color: #b0c4de;
+            text-align: center;
+            padding: 30px 5%;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NN<span>Tools</span>.vn</div>
+        <nav>
+            <ul>
+                <li><a href="#trang-chu">Trang Chủ</a></li>
+                <li><a href="#giai-phap">Giải Pháp</a></li>
+                <li><a href="#phan-mem">Phần Mềm</a></li>
+                <li><a href="#lien-he">Liên Hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="trang-chu" class="hero">
+            <h1>Nền Tảng Tiên Phong Trong Thiết Kế Tủ Bảng Điện</h1>
+            <p>Cung cấp các công cụ tự động hóa mạnh mẽ và giải pháp kỹ thuật chuyên sâu. Tối ưu hóa quy trình thiết kế, bóc tách khối lượng và triển khai bản vẽ cho các dự án công nghiệp và hàng hải.</p>
+            <a href="#giai-phap" class="btn">Khám Phá Ngay</a>
+        </section>
+
+        <section id="giai-phap" class="solutions">
+            <h2 class="section-title">Giải Pháp & Hệ Sinh Thái</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Thiết Kế Tủ Điện Chuyên Nghiệp</h3>
+                    <p>Cung cấp tài nguyên, bản vẽ mẫu và tiêu chuẩn thiết kế tủ bảng điện đáp ứng các yêu cầu khắt khe trong công nghiệp và hệ thống điện tàu biển.</p>
+                </div>
+                <div class="card">
+                    <h3>Công Cụ Tự Động Hóa (AutoCAD/Excel)</h3>
+                    <p>Phát triển các tiện ích Add-in bằng AutoLISP, VBA, và C# .NET giúp tăng tốc độ vẽ, tự động hóa tính toán kích thước và layout linh kiện nhanh chóng.</p>
+                </div>
+                <div class="card">
+                    <h3>Batch Plot Pro (ABP)</h3>
+                    <p>Giải pháp phần mềm in ấn hàng loạt mạnh mẽ nhất dành cho kỹ sư. Xử lý xuất bản vẽ tự động, quản lý thông minh và tiết kiệm hàng giờ đồng hồ làm việc.</p>
+                </div>
+                <div class="card">
+                    <h3>Tích Hợp AI & Nhận Dạng Dữ Liệu</h3>
+                    <p>Ứng dụng công nghệ OCR và trí tuệ nhân tạo để trích xuất dữ liệu từ bản vẽ PDF, tự động hóa luồng công việc số hóa bản vẽ kỹ thuật.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="phan-mem" class="tech-stack">
+            <h2 style="margin-bottom: 20px; color: #fff;">Được Phát Triển Bởi Nhất Nguyễn</h2>
+            <p>Với nhiều năm kinh nghiệm thực chiến, chúng tôi không chỉ thiết kế tủ điện mà còn lập trình ra các công cụ để giải quyết chính những nỗi đau của người kỹ sư.</p>
+            <p>Hệ thống được vận hành và liên kết chặt chẽ với nền tảng chia sẻ kiến thức <strong>ThietKeTuDien.vn</strong>.</p>
+        </section>
+    </main>
+
+    <footer id="lien-he">
+        <p>&copy; 2026 NNTools.vn - Designed by Nhất Nguyễn.</p>
+        <p>Trụ sở: Hà Nội, Việt Nam</p>
+        <div class="footer-links">
+            <p>Liên hệ hợp tác: <a href="mailto:thietketudienvn@gmail.com">thietketudienvn@gmail.com</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
