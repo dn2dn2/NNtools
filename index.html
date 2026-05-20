@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <link rel="icon" type="image/png" href="favicon.png">
+	<link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NNTools.vn | Giải Pháp Tự Động Hóa & Thiết Kế Tủ Bảng Điện</title>
@@ -9,7 +9,7 @@
     <!-- Tối ưu SEO cơ bản -->
     <meta name="description" content="NNTools.vn - Nền tảng cung cấp giải pháp thiết kế tủ bảng điện, công cụ tự động hóa AutoLISP, VBA, C# và phần mềm in hàng loạt Batch Plot Pro (ABP) cho kỹ sư.">
     <meta name="keywords" content="thiết kế tủ điện, tự động hóa AutoCAD, AutoLISP, VBA, C#, in hàng loạt, Batch Plot Pro, ABP, phần mềm kỹ thuật, NNTools">
-    <meta name="author" content="Nhất Nguyễn">
+    <meta name="author" content="Haeco Team">
     <link rel="canonical" href="https://nntools.vn/" />
 
     <!-- Tối ưu SEO Open Graph (Hiển thị đẹp khi share Zalo, Facebook, LinkedIn) -->
@@ -159,6 +159,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
             border-top: 4px solid var(--primary-color);
+            cursor: pointer;
         }
 
         .card:hover {
@@ -171,6 +172,16 @@
             color: var(--primary-color);
             margin-bottom: 15px;
             font-size: 1.4rem;
+        }
+
+        /* Giới hạn nội dung mô tả ở trang chủ để không vỡ layout */
+        .card p {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: left;
         }
 
         /* About/Tech Section */
@@ -208,6 +219,69 @@
             text-decoration: underline;
         }
 
+        /* Modal / Popup CSS */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(2px);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 650px;
+            border-radius: 8px;
+            border-top: 4px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeIn 0.3s ease-in-out;
+            position: relative;
+            text-align: left; /* Căn trái cho nội dung dễ đọc */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #333;
+            text-decoration: none;
+        }
+
+        #modalTitle {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-right: 30px;
+        }
+
+        /* Loại bỏ giới hạn dòng trong modal */
+        #modalBody p {
+            display: block;
+            overflow: visible;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav ul {
@@ -243,21 +317,52 @@
         <section id="giai-phap" class="solutions">
             <h2 class="section-title">Giải Pháp & Hệ Sinh Thái</h2>
             <div class="grid-container">
-                <div class="card">
+                <!-- Thẻ 1 -->
+                <div class="card" onclick="openModal(this)">
                     <h3>Thiết Kế Tủ Điện Chuyên Nghiệp</h3>
-                    <p>Cung cấp tài nguyên, bản vẽ mẫu và tiêu chuẩn thiết kế tủ bảng điện đáp ứng các yêu cầu khắt khe trong công nghiệp và hệ thống điện tàu biển.</p>
+                    <p>
+                        Cung cấp tài nguyên, bản vẽ mẫu và tiêu chuẩn thiết kế tủ bảng điện đáp ứng các yêu cầu khắt khe trong công nghiệp và hệ thống điện tàu biển.<br><br>
+                        <strong>Chi tiết dịch vụ:</strong><br>
+                        - Tư vấn và thiết kế các loại tủ điện phân phối, tủ điều khiển tự động hóa.<br>
+                        - Thiết kế hệ thống điện hàng hải, tủ điện tàu biển tuân thủ nghiêm ngặt các quy chuẩn an toàn.<br>
+                        - Bóc tách khối lượng vật tư (BOM) chính xác và tối ưu chi phí.<br>
+                        - Hỗ trợ kỹ thuật và cung cấp thư viện bản vẽ đồ sộ thông qua mạng lưới ThietKeTuDien.vn.
+                    </p>
                 </div>
-                <div class="card">
+                <!-- Thẻ 2 -->
+                <div class="card" onclick="openModal(this)">
                     <h3>Công Cụ Tự Động Hóa (AutoCAD/Excel)</h3>
-                    <p>Phát triển các tiện ích Add-in bằng AutoLISP, VBA, và C# .NET giúp tăng tốc độ vẽ, tự động hóa tính toán kích thước và layout linh kiện nhanh chóng.</p>
+                    <p>
+                        Phát triển các tiện ích Add-in bằng AutoLISP, VBA, và C# .NET giúp tăng tốc độ vẽ, tự động hóa tính toán kích thước và layout linh kiện nhanh chóng.<br><br>
+                        <strong>Tính năng nổi bật:</strong><br>
+                        - Tool tự động tính toán và vẽ kích thước vỏ tủ điện, sắp xếp layout thiết bị thông minh.<br>
+                        - Add-in Excel liên kết hai chiều với AutoCAD để xuất/nhập danh sách linh kiện thiết kế.<br>
+                        - Bộ công cụ hỗ trợ thiết kế NhatNguyenTools giúp tối ưu thiết kế mạch điện và bóc tách vật tư.<br>
+                        - Xóa bỏ các thao tác lặp đi lặp lại, tiết kiệm lên đến 80% thời gian triển khai bản vẽ so với phương pháp thủ công.
+                    </p>
                 </div>
-                <div class="card">
+                <!-- Thẻ 3 -->
+                <div class="card" onclick="openModal(this)">
                     <h3>Batch Plot Pro (ABP)</h3>
-                    <p>Giải pháp phần mềm in ấn hàng loạt mạnh mẽ nhất dành cho kỹ sư. Xử lý xuất bản vẽ tự động, quản lý thông minh và tiết kiệm hàng giờ đồng hồ làm việc.</p>
+                    <p>
+                        Giải pháp phần mềm in ấn hàng loạt mạnh mẽ nhất dành cho kỹ sư. Xử lý xuất bản vẽ tự động, quản lý thông minh và tiết kiệm hàng giờ đồng hồ làm việc.<br><br>
+                        <strong>Điểm mạnh của ABP (Version 15.0+):</strong><br>
+                        - In hàng loạt bản vẽ AutoCAD ra định dạng PDF hoặc gửi trực tiếp tới máy in giấy chỉ với 1 click chuột.<br>
+                        - Thuật toán nhận diện khung tên thông minh, tự động cắt và xoay bản vẽ đúng tỷ lệ chuẩn.<br>
+                        - Tự động lấy Text/Block trong khung tên để đặt tên cho file xuất ra (Ví dụ: Số thứ tự_Tên bản vẽ.pdf).<br>
+                        - Hiệu suất cao, hoạt động nhẹ nhàng và tương thích hoàn hảo với nhiều phiên bản AutoCAD.
+                    </p>
                 </div>
-                <div class="card">
+                <!-- Thẻ 4 -->
+                <div class="card" onclick="openModal(this)">
                     <h3>Tích Hợp AI & Nhận Dạng Dữ Liệu</h3>
-                    <p>Ứng dụng công nghệ OCR và trí tuệ nhân tạo để trích xuất dữ liệu từ bản vẽ PDF, tự động hóa luồng công việc số hóa bản vẽ kỹ thuật.</p>
+                    <p>
+                        Ứng dụng công nghệ OCR và trí tuệ nhân tạo để trích xuất dữ liệu từ bản vẽ PDF, tự động hóa luồng công việc số hóa bản vẽ kỹ thuật.<br><br>
+                        <strong>Ứng dụng thực tế:</strong><br>
+                        - Tích hợp Gemini API và công nghệ PaddleOCR để quét, đọc và bóc tách chữ từ các bản vẽ kỹ thuật định dạng PDF/Image.<br>
+                        - Chuyển đổi dữ liệu bản cứng thành cơ sở dữ liệu số trên Excel nhanh chóng.<br>
+                        - Phục vụ quá trình tra cứu kỹ thuật, bóc tách vật tư cho các kỹ sư điện trong quá trình thiết kế và báo giá.
+                    </p>
                 </div>
             </div>
         </section>
@@ -276,6 +381,45 @@
             <p>Liên hệ hợp tác: <a href="mailto:thietketudienvn@gmail.com">thietketudienvn@gmail.com</a></p>
         </div>
     </footer>
+
+    <!-- Cấu trúc Modal HTML -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Tiêu đề</h2>
+            <div id="modalBody" style="font-size: 1.1rem; color: #444; line-height: 1.6;">Nội dung</div>
+        </div>
+    </div>
+
+    <!-- JavaScript để xử lý Popup -->
+    <script>
+        // Hàm mở Popup và lấy dữ liệu từ card được click
+        function openModal(element) {
+            // Lấy nội dung text từ thẻ h3 và HTML bên trong thẻ p của card
+            var title = element.querySelector('h3').innerText;
+            var content = element.querySelector('p').innerHTML;
+            
+            // Gán vào Modal
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerHTML = content;
+            
+            // Hiển thị Modal
+            document.getElementById('serviceModal').style.display = 'block';
+        }
+
+        // Hàm đóng Popup khi nhấn nút X
+        function closeModal() {
+            document.getElementById('serviceModal').style.display = 'none';
+        }
+
+        // Đóng Popup khi click ra ngoài khung nội dung
+        window.onclick = function(event) {
+            var modal = document.getElementById('serviceModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
