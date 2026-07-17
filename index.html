@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-	<link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NNTools.vn | Giải Pháp Tự Động Hóa & Thiết Kế Tủ Bảng Điện</title>
 
     <!-- Tối ưu SEO cơ bản -->
-    <meta name="description" content="NNTools.vn - Nền tảng cung cấp giải pháp thiết kế tủ bảng điện, công cụ tự động hóa AutoLISP, VBA, C# và phần mềm in hàng loạt Batch Plot Pro (ABP) cho kỹ sư.">
-    <meta name="keywords" content="thiết kế tủ điện, tự động hóa AutoCAD, AutoLISP, VBA, C#, in hàng loạt, Batch Plot Pro, ABP, phần mềm kỹ thuật, NNTools">
+    <meta name="description"
+        content="NNTools.vn - Nền tảng cung cấp giải pháp thiết kế tủ bảng điện, công cụ tự động hóa AutoLISP, VBA, C# và phần mềm in hàng loạt Batch Plot Pro (ABP) cho kỹ sư.">
+    <meta name="keywords"
+        content="thiết kế tủ điện, tự động hóa AutoCAD, AutoLISP, VBA, C#, in hàng loạt, Batch Plot Pro, ABP, phần mềm kỹ thuật, NNTools">
     <meta name="author" content="Haeco Team">
     <link rel="canonical" href="https://nntools.vn/" />
 
     <!-- Tối ưu SEO Open Graph (Hiển thị đẹp khi share Zalo, Facebook, LinkedIn) -->
     <meta property="og:title" content="NNTools.vn | Giải Pháp Tự Động Hóa & Thiết Kế Tủ Bảng Điện">
-    <meta property="og:description" content="Cung cấp công cụ tự động hóa mạnh mẽ và giải pháp kỹ thuật chuyên sâu. Tối ưu hóa thiết kế, bóc tách khối lượng và triển khai bản vẽ công nghiệp, hàng hải.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1581092335397-9583eb92d232?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:description"
+        content="Cung cấp công cụ tự động hóa mạnh mẽ và giải pháp kỹ thuật chuyên sâu. Tối ưu hóa thiết kế, bóc tách khối lượng và triển khai bản vẽ công nghiệp, hàng hải.">
+    <meta property="og:image"
+        content="https://lh7-us.googleusercontent.com/sitesv-images-rt/ACHe0d0aPzkiAuOrlAH-y1Ipcv_pnNkGFk0-jd_AKtCbNzP_BPTaXsk4Pod56mzJFsiHQ6yWmOhDHTxwdpkB6OfMzljvd7AaYz7Q5tlQUXwVRUpvk_Gbw0ZpU5RlHMmZPDWt_S9BS-NajUBK3buHMtLrfZJDOf4Iqt_dd3X7VbK4WCtGb0QUaNHyK4o0dEIrTHc">
     <meta property="og:url" content="https://nntools.vn/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NNTools.vn">
@@ -23,10 +28,13 @@
     <style>
         /* CSS Reset & Variables */
         :root {
-            --primary-color: #0b3b60; /* Xanh Navy kỹ thuật */
-            --secondary-color: #f4f7f6; /* Xám nhạt */
-            --accent-color: #ff8c00; /* Cam nổi bật cho nút bấm */
-            --text-dark: #333333;
+            --primary-color: #111827;
+            /* Xám đen than (Hiện đại) */
+            --secondary-color: #f9fafb;
+            /* Trắng xám sang trọng */
+            --accent-color: #2563eb;
+            /* Xanh Royal Blue */
+            --text-dark: #1f2937;
             --text-light: #ffffff;
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -55,7 +63,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
@@ -87,7 +95,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(11, 59, 96, 0.8), rgba(11, 59, 96, 0.8)), url('https://images.unsplash.com/photo-1581092335397-9583eb92d232?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://lh7-us.googleusercontent.com/sitesv-images-rt/ACHe0d0aPzkiAuOrlAH-y1Ipcv_pnNkGFk0-jd_AKtCbNzP_BPTaXsk4Pod56mzJFsiHQ6yWmOhDHTxwdpkB6OfMzljvd7AaYz7Q5tlQUXwVRUpvk_Gbw0ZpU5RlHMmZPDWt_S9BS-NajUBK3buHMtLrfZJDOf4Iqt_dd3X7VbK4WCtGb0QUaNHyK4o0dEIrTHc') center/cover;
             color: var(--text-light);
             text-align: center;
             padding: 100px 20px;
@@ -118,7 +126,7 @@
         }
 
         .btn:hover {
-            background-color: #e07b00;
+            background-color: #1d4ed8;
         }
 
         /* Services/Solutions Section */
@@ -156,7 +164,7 @@
             background-color: var(--secondary-color);
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
             border-top: 4px solid var(--primary-color);
             cursor: pointer;
@@ -164,7 +172,7 @@
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             border-top: 4px solid var(--accent-color);
         }
 
@@ -200,8 +208,8 @@
 
         /* Footer */
         footer {
-            background-color: #06233b;
-            color: #b0c4de;
+            background-color: var(--primary-color);
+            color: #9ca3af;
             text-align: center;
             padding: 30px 5%;
         }
@@ -229,7 +237,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(2px);
         }
 
@@ -242,15 +250,23 @@
             max-width: 650px;
             border-radius: 8px;
             border-top: 4px solid var(--accent-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             animation: fadeIn 0.3s ease-in-out;
             position: relative;
-            text-align: left; /* Căn trái cho nội dung dễ đọc */
+            text-align: left;
+            /* Căn trái cho nội dung dễ đọc */
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .close-btn {
@@ -287,6 +303,7 @@
             nav ul {
                 display: none;
             }
+
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -308,7 +325,7 @@
         .youtube-card {
             background-color: var(--secondary-color);
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             overflow: hidden;
@@ -317,7 +334,7 @@
 
         .youtube-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .video-thumbnail-container {
@@ -345,7 +362,7 @@
             transform: translate(-50%, -50%);
             font-size: 3rem;
             color: rgba(255, 255, 255, 0.8);
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             pointer-events: none;
             transition: color 0.3s, transform 0.3s;
         }
@@ -364,7 +381,8 @@
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
         }
@@ -382,14 +400,15 @@
             z-index: 10;
             top: 10px;
             right: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         #videoModal .close-btn:hover {
             color: var(--accent-color);
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -407,7 +426,8 @@
     <main>
         <section id="trang-chu" class="hero">
             <h1>Nền Tảng Tiên Phong Trong Thiết Kế Tủ Bảng Điện</h1>
-            <p>Cung cấp các công cụ tự động hóa mạnh mẽ và giải pháp kỹ thuật chuyên sâu. Tối ưu hóa quy trình thiết kế, bóc tách khối lượng và triển khai bản vẽ cho các dự án công nghiệp và hàng hải.</p>
+            <p>Cung cấp các công cụ tự động hóa mạnh mẽ và giải pháp kỹ thuật chuyên sâu. Tối ưu hóa quy trình thiết kế,
+                bóc tách khối lượng và triển khai bản vẽ cho các dự án công nghiệp và hàng hải.</p>
             <a href="#giai-phap" class="btn">Khám Phá Ngay</a>
         </section>
 
@@ -418,10 +438,12 @@
                 <div class="card" onclick="openModal(this)">
                     <h3>Thiết Kế Tủ Điện Chuyên Nghiệp</h3>
                     <p>
-                        Cung cấp tài nguyên, bản vẽ mẫu và tiêu chuẩn thiết kế tủ bảng điện đáp ứng các yêu cầu khắt khe trong công nghiệp và hệ thống điện tàu biển.<br><br>
+                        Cung cấp tài nguyên, bản vẽ mẫu và tiêu chuẩn thiết kế tủ bảng điện đáp ứng các yêu cầu khắt khe
+                        trong công nghiệp và hệ thống điện tàu biển.<br><br>
                         <strong>Chi tiết dịch vụ:</strong><br>
                         - Tư vấn và thiết kế các loại tủ điện phân phối, tủ điều khiển tự động hóa.<br>
-                        - Thiết kế hệ thống điện hàng hải, tủ điện tàu biển tuân thủ nghiêm ngặt các quy chuẩn an toàn.<br>
+                        - Thiết kế hệ thống điện hàng hải, tủ điện tàu biển tuân thủ nghiêm ngặt các quy chuẩn an
+                        toàn.<br>
                         - Bóc tách khối lượng vật tư (BOM) chính xác và tối ưu chi phí.<br>
                         - Hỗ trợ kỹ thuật và cung cấp thư viện bản vẽ đồ sộ thông qua mạng lưới ThietKeTuDien.vn.
                     </p>
@@ -430,23 +452,29 @@
                 <div class="card" onclick="openModal(this)">
                     <h3>Công Cụ Tự Động Hóa (AutoCAD/Excel)</h3>
                     <p>
-                        Phát triển các tiện ích Add-in bằng AutoLISP, VBA, và C# .NET giúp tăng tốc độ vẽ, tự động hóa tính toán kích thước và layout linh kiện nhanh chóng.<br><br>
+                        Phát triển các tiện ích Add-in bằng AutoLISP, VBA, và C# .NET giúp tăng tốc độ vẽ, tự động hóa
+                        tính toán kích thước và layout linh kiện nhanh chóng.<br><br>
                         <strong>Tính năng nổi bật:</strong><br>
                         - Tool tự động tính toán và vẽ kích thước vỏ tủ điện, sắp xếp layout thiết bị thông minh.<br>
                         - Add-in Excel liên kết hai chiều với AutoCAD để xuất/nhập danh sách linh kiện thiết kế.<br>
-                        - Bộ công cụ hỗ trợ thiết kế NhatNguyenTools giúp tối ưu thiết kế mạch điện và bóc tách vật tư.<br>
-                        - Xóa bỏ các thao tác lặp đi lặp lại, tiết kiệm lên đến 80% thời gian triển khai bản vẽ so với phương pháp thủ công.
+                        - Bộ công cụ hỗ trợ thiết kế NhatNguyenTools giúp tối ưu thiết kế mạch điện và bóc tách vật
+                        tư.<br>
+                        - Xóa bỏ các thao tác lặp đi lặp lại, tiết kiệm lên đến 80% thời gian triển khai bản vẽ so với
+                        phương pháp thủ công.
                     </p>
                 </div>
                 <!-- Thẻ 3 -->
                 <div class="card" onclick="openModal(this)">
                     <h3>Batch Plot Pro (ABP)</h3>
                     <p>
-                        Giải pháp phần mềm in ấn hàng loạt mạnh mẽ nhất dành cho kỹ sư. Xử lý xuất bản vẽ tự động, quản lý thông minh và tiết kiệm hàng giờ đồng hồ làm việc.<br><br>
+                        Giải pháp phần mềm in ấn hàng loạt mạnh mẽ nhất dành cho kỹ sư. Xử lý xuất bản vẽ tự động, quản
+                        lý thông minh và tiết kiệm hàng giờ đồng hồ làm việc.<br><br>
                         <strong>Điểm mạnh của ABP (Version 15.0+):</strong><br>
-                        - In hàng loạt bản vẽ AutoCAD ra định dạng PDF hoặc gửi trực tiếp tới máy in giấy chỉ với 1 click chuột.<br>
+                        - In hàng loạt bản vẽ AutoCAD ra định dạng PDF hoặc gửi trực tiếp tới máy in giấy chỉ với 1
+                        click chuột.<br>
                         - Thuật toán nhận diện khung tên thông minh, tự động cắt và xoay bản vẽ đúng tỷ lệ chuẩn.<br>
-                        - Tự động lấy Text/Block trong khung tên để đặt tên cho file xuất ra (Ví dụ: Số thứ tự_Tên bản vẽ.pdf).<br>
+                        - Tự động lấy Text/Block trong khung tên để đặt tên cho file xuất ra (Ví dụ: Số thứ tự_Tên bản
+                        vẽ.pdf).<br>
                         - Hiệu suất cao, hoạt động nhẹ nhàng và tương thích hoàn hảo với nhiều phiên bản AutoCAD.
                     </p>
                 </div>
@@ -454,11 +482,14 @@
                 <div class="card" onclick="openModal(this)">
                     <h3>Tích Hợp AI & Nhận Dạng Dữ Liệu</h3>
                     <p>
-                        Ứng dụng công nghệ OCR và trí tuệ nhân tạo để trích xuất dữ liệu từ bản vẽ PDF, tự động hóa luồng công việc số hóa bản vẽ kỹ thuật.<br><br>
+                        Ứng dụng công nghệ OCR và trí tuệ nhân tạo để trích xuất dữ liệu từ bản vẽ PDF, tự động hóa
+                        luồng công việc số hóa bản vẽ kỹ thuật.<br><br>
                         <strong>Ứng dụng thực tế:</strong><br>
-                        - Tích hợp Gemini API và công nghệ PaddleOCR để quét, đọc và bóc tách chữ từ các bản vẽ kỹ thuật định dạng PDF/Image.<br>
+                        - Tích hợp Gemini API và công nghệ PaddleOCR để quét, đọc và bóc tách chữ từ các bản vẽ kỹ thuật
+                        định dạng PDF/Image.<br>
                         - Chuyển đổi dữ liệu bản cứng thành cơ sở dữ liệu số trên Excel nhanh chóng.<br>
-                        - Phục vụ quá trình tra cứu kỹ thuật, bóc tách vật tư cho các kỹ sư điện trong quá trình thiết kế và báo giá.
+                        - Phục vụ quá trình tra cứu kỹ thuật, bóc tách vật tư cho các kỹ sư điện trong quá trình thiết
+                        kế và báo giá.
                     </p>
                 </div>
             </div>
@@ -468,7 +499,8 @@
             <h2 class="section-title">Video Giới Thiệu NhatNguyenTools</h2>
             <div class="video-grid" id="videoGridContainer">
                 <!-- Danh sách Video - Chỉ cần cung cấp ID và Tiêu đề -->
-                <div class="youtube-card" data-video-id="2BB229CVA78" data-title="Giới thiệu công cụ cơ bản vẽ mạch điện trên AUTOCAD"></div>
+                <div class="youtube-card" data-video-id="2BB229CVA78"
+                    data-title="Giới thiệu công cụ cơ bản vẽ mạch điện trên AUTOCAD"></div>
                 <div class="youtube-card" data-video-id="9XuMzrcg_k0" data-title="Lệnh KTCRL, KTCRL, SYNCRL"></div>
                 <div class="youtube-card" data-video-id="orgebQHk0ps" data-title="Lệnh TKPLCIN, TKPLCOUT, SYNPLC"></div>
                 <div class="youtube-card" data-video-id="q36m80DAvyU" data-title="Lệnh SYNTF"></div>
@@ -478,15 +510,19 @@
                 <div class="youtube-card" data-video-id="SBKPYx2cQgk" data-title="Lệnh gom TEXT:GTD, GTN,GTG"></div>
                 <div class="youtube-card" data-video-id="Qxo520bD13I" data-title="Lệnh CAD2EXCEL"></div>
                 <div class="youtube-card" data-video-id="LewApLYQwDo" data-title="Lệnh KTLINKCRL"></div>
-				<div class="youtube-card" data-video-id="f-IYwXyOzRQ" data-title="Lệnh Electrical_Inserter"></div>
-				<div class="youtube-card" data-video-id="6rWAfWypCNA" data-title="Thống kê gen số trên bản vẽ thiết kế mạch điện trên AutoCAD"></div>
+                <div class="youtube-card" data-video-id="f-IYwXyOzRQ" data-title="Lệnh Electrical_Inserter"></div>
+                <div class="youtube-card" data-video-id="6rWAfWypCNA"
+                    data-title="Thống kê gen số trên bản vẽ thiết kế mạch điện trên AutoCAD"></div>
             </div>
         </section>
 
         <section id="phan-mem" class="tech-stack">
             <h2 style="margin-bottom: 20px; color: #fff;">Được Phát Triển Bởi Nhất Nguyễn</h2>
-            <p>Với nhiều năm kinh nghiệm thực chiến, chúng tôi không chỉ thiết kế tủ điện mà còn lập trình ra các công cụ để giải quyết chính những nỗi đau của người kỹ sư.</p>
-            <p>Hệ thống được vận hành và liên kết chặt chẽ với nền tảng chia sẻ kiến thức <strong>ThietKeTuDien.vn</strong>.</p>
+            <p>Với nhiều năm kinh nghiệm thực chiến, chúng tôi không chỉ thiết kế tủ điện mà còn lập trình ra các công
+                cụ để giải quyết chính những nỗi đau của người kỹ sư.</p>
+            <p>Hệ thống được vận hành và liên kết chặt chẽ với nền tảng chia sẻ kiến thức
+                <strong>ThietKeTuDien.vn</strong>.
+            </p>
         </section>
     </main>
 
@@ -512,7 +548,9 @@
         <div class="modal-content video-modal-content">
             <span class="close-btn" onclick="closeVideoModal()">&times;</span>
             <div class="video-wrapper">
-                <iframe id="youtubePlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe id="youtubePlayer" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -524,11 +562,11 @@
             // Lấy nội dung text từ thẻ h3 và HTML bên trong thẻ p của card
             var title = element.querySelector('h3').innerText;
             var content = element.querySelector('p').innerHTML;
-            
+
             // Gán vào Modal
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalBody').innerHTML = content;
-            
+
             // Hiển thị Modal
             document.getElementById('serviceModal').style.display = 'block';
         }
@@ -539,16 +577,26 @@
         }
 
         // Đóng Popup khi click ra ngoài khung nội dung
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             var serviceModal = document.getElementById('serviceModal');
             var videoModal = document.getElementById('videoModal');
-            
+
             if (event.target == serviceModal) {
                 serviceModal.style.display = "none";
             }
             if (event.target == videoModal) {
                 closeVideoModal();
             }
+        }
+
+        // Hàm tự động trích xuất ID Youtube từ mọi loại link
+        function extractYoutubeId(urlOrId) {
+            if (!urlOrId) return "";
+            if (/^[a-zA-Z0-9_-]{11}$/.test(urlOrId)) {
+                return urlOrId;
+            }
+            var match = urlOrId.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]{11})/);
+            return match ? match[1] : urlOrId;
         }
 
         // Xử lý Video Modal
@@ -563,12 +611,13 @@
         }
 
         // Tự động render nội dung cho các thẻ youtube-card
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var youtubeCards = document.querySelectorAll('.youtube-card');
-            youtubeCards.forEach(function(card) {
-                var videoId = card.getAttribute('data-video-id');
+            youtubeCards.forEach(function (card) {
+                var rawId = card.getAttribute('data-video-id');
+                var videoId = extractYoutubeId(rawId);
                 var title = card.getAttribute('data-title');
-                
+
                 // Tạo cấu trúc HTML
                 card.innerHTML = `
                     <div class="video-thumbnail-container">
@@ -579,9 +628,9 @@
                         <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--primary-color);">${title}</h3>
                     </div>
                 `;
-                
+
                 // Gắn sự kiện click mở popup
-                card.addEventListener('click', function() {
+                card.addEventListener('click', function () {
                     openVideoModal(videoId);
                 });
             });
@@ -589,4 +638,5 @@
     </script>
 
 </body>
+
 </html>
