@@ -408,6 +408,47 @@
         #videoModal .close-btn:hover {
             color: var(--accent-color);
         }
+
+        /* CSS cho Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--primary-color);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 5px 5px;
+            z-index: 1001;
+            padding: 10px 0;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: flex;
+            animation: fadeInMenu 0.3s ease-in-out;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            display: block;
+            width: 100%;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        @keyframes fadeInMenu {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 
@@ -420,6 +461,14 @@
                 <li><a href="#trang-chu">Trang Chủ</a></li>
                 <li><a href="#giai-phap">Giải Pháp</a></li>
                 <li><a href="#phan-mem">Phần Mềm</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)">Thư Viện ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://www.thietketudien.vn/" target="_blank">ThietKeTuDienVN</a></li>
+                        <li><a href="https://blog.thietketudien.vn/" target="_blank">Blog</a></li>
+                        <li><a href="https://www.lispcad.com/" target="_blank">LispCAD</a></li>
+                    </ul>
+                </li>
                 <li><a href="#lien-he">Liên Hệ</a></li>
             </ul>
         </nav>
