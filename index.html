@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NNTools.vn | Giải Pháp Tự Động Hóa & Thiết Kế Tủ Bảng Điện</title>
 
-    <!-- Tối ưu SEO cơ bản -->
+    <!-- SEO -->
     <meta name="description"
         content="NNTools.vn - Nền tảng cung cấp giải pháp thiết kế tủ bảng điện, công cụ tự động hóa AutoLISP, VBA, C# và phần mềm in hàng loạt Batch Plot Pro (ABP) cho kỹ sư.">
     <meta name="keywords"
@@ -15,28 +15,36 @@
     <meta name="author" content="Haeco Team">
     <link rel="canonical" href="https://nntools.vn/" />
 
-    <!-- Tối ưu SEO Open Graph (Hiển thị đẹp khi share Zalo, Facebook, LinkedIn) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="NNTools.vn | Giải Pháp Tự Động Hóa & Thiết Kế Tủ Bảng Điện">
     <meta property="og:description"
         content="Cung cấp công cụ tự động hóa mạnh mẽ và giải pháp kỹ thuật chuyên sâu. Tối ưu hóa thiết kế, bóc tách khối lượng và triển khai bản vẽ công nghiệp, hàng hải.">
-    <meta property="og:image"
-        content="https://raw.githubusercontent.com/dn2dn2/NNtools/refs/heads/main//banner.png">
+    <meta property="og:image" content="https://raw.githubusercontent.com/dn2dn2/NNtools/refs/heads/main/banner.jpg">
     <meta property="og:url" content="https://nntools.vn/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NNTools.vn">
 
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
     <style>
-        /* CSS Reset & Variables */
         :root {
-            --primary-color: #111827;
-            /* Xám đen than (Hiện đại) */
-            --secondary-color: #f9fafb;
-            /* Trắng xám sang trọng */
-            --accent-color: #2563eb;
-            /* Xanh Royal Blue */
-            --text-dark: #1f2937;
-            --text-light: #ffffff;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #ef4444;
+            --bg-secondary: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --font-display: 'Clash Display', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition-base: 0.3s ease;
         }
 
         * {
@@ -46,311 +54,459 @@
         }
 
         body {
-            font-family: var(--font-main);
-            color: var(--text-dark);
+            font-family: var(--font-body);
+            color: var(--text-primary);
             line-height: 1.6;
-            background-color: var(--secondary-color);
+            background-color: #ffffff;
+            overflow-x: hidden;
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 1rem 5%;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-base);
+            font-family: var(--font-body);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-large {
+            padding: 14px 32px;
+            font-size: 1.1rem;
+        }
+
+        /* FABs */
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .fab-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .fab-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .zalo-btn {
+            background-color: #0068FF;
+        }
+
+        .facebook-btn {
+            background-color: #1877F2;
+        }
+
+        .phone-btn {
+            background-color: #4CAF50;
+        }
+
+        /* Header */
+        .site-header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            box-shadow: var(--shadow-sm);
+            padding: 15px 0;
+        }
+
+        .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
+            font-family: var(--font-display);
             font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 2px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-primary);
         }
 
         .logo span {
-            color: var(--accent-color);
+            color: var(--primary);
         }
 
-        nav ul {
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 24px;
         }
 
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
+        .nav-link {
             font-weight: 500;
             transition: color 0.3s;
         }
 
-        nav ul li a:hover {
-            color: var(--accent-color);
+        .nav-link:hover {
+            color: var(--primary);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/dn2dn2/NNtools/refs/heads/main//banner.png') center/cover;
-            color: var(--text-light);
-            text-align: center;
-            padding: 100px 20px;
+        .nav-actions {
+            display: flex;
+            gap: 12px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-        }
-
-        .btn {
-            background-color: var(--accent-color);
-            color: var(--text-light);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s;
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
             border: none;
             cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
         }
 
-        .btn:hover {
-            background-color: #1d4ed8;
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            border-radius: 3px;
+            transition: 0.3s;
         }
 
-        /* Services/Solutions Section */
-        .solutions {
-            padding: 60px 5%;
+        /* Hero */
+        .hero-section {
+            position: relative;
+            padding: 8rem 0 6rem;
+            overflow: hidden;
+            background-color: var(--bg-secondary);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.6s ease-out 0.1s backwards;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 0.6s ease-out 0.5s backwards;
+        }
+
+        .visual-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .visual-card.floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .card-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #E5E7EB;
+        }
+
+        .card-dot:nth-child(1) {
+            background: #FF5F57;
+        }
+
+        .card-dot:nth-child(2) {
+            background: #FFBD2E;
+        }
+
+        .card-dot:nth-child(3) {
+            background: #28CA42;
+        }
+
+        .code-line {
+            height: 12px;
+            background: linear-gradient(90deg, var(--primary) 0%, transparent 100%);
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+            opacity: 0.3;
+        }
+
+        .code-line.short {
+            width: 60%;
+        }
+
+        .code-line.medium {
+            width: 80%;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            top: -200px;
+            right: -100px;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            bottom: -150px;
+            left: -50px;
+            animation-delay: -4s;
+        }
+
+        /* Solutions */
+        .services-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .section-header {
             text-align: center;
-            background-color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
         .section-title {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            position: relative;
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .section-title::after {
-            content: '';
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .grid-container {
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
-        .card {
-            background-color: var(--secondary-color);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--primary-color);
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 2px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
             cursor: pointer;
+            height: 100%;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid var(--accent-color);
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
         }
 
-        .card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            color: white;
         }
 
-        /* Giới hạn nội dung mô tả ở trang chủ để không vỡ layout */
-        .card p {
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
             display: -webkit-box;
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
             text-align: left;
-        }
-
-        /* About/Tech Section */
-        .tech-stack {
-            padding: 60px 5%;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            text-align: center;
-        }
-
-        .tech-stack p {
-            max-width: 700px;
-            margin: 0 auto 20px auto;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: #9ca3af;
-            text-align: center;
-            padding: 30px 5%;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        /* Modal / Popup CSS */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(2px);
-        }
-
-        .modal-content {
-            background-color: #ffffff;
-            margin: 10% auto;
-            padding: 30px;
-            border: 1px solid #888;
-            width: 90%;
-            max-width: 650px;
-            border-radius: 8px;
-            border-top: 4px solid var(--accent-color);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 0.3s ease-in-out;
-            position: relative;
-            text-align: left;
-            /* Căn trái cho nội dung dễ đọc */
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .close-btn {
-            color: #aaa;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .close-btn:hover,
-        .close-btn:focus {
-            color: #333;
-            text-decoration: none;
-        }
-
-        #modalTitle {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            padding-right: 30px;
-        }
-
-        /* Loại bỏ giới hạn dòng trong modal */
-        #modalBody p {
-            display: block;
-            overflow: visible;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+            color: var(--text-secondary);
         }
 
         /* Video Section */
         .video-section {
-            padding: 60px 5%;
-            text-align: center;
-            background-color: var(--secondary-color);
+            padding: 6rem 0;
+            background-color: var(--bg-secondary);
         }
 
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
 
         .youtube-card {
-            background-color: var(--secondary-color);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
+            background-color: white;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: pointer;
         }
 
         .youtube-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .video-thumbnail-container {
             position: relative;
-            cursor: pointer;
             overflow: hidden;
-            border-radius: 8px 8px 0 0;
+            padding-bottom: 56.25%;
+            /* 16:9 */
         }
 
         .video-thumbnail-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            display: block;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s;
         }
 
-        .video-thumbnail-container:hover img {
+        .youtube-card:hover .video-thumbnail-container img {
             transform: scale(1.05);
             filter: brightness(0.8);
         }
@@ -360,33 +516,195 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 24px;
+            opacity: 0.8;
+            transition: all 0.3s;
         }
 
-        .video-thumbnail-container:hover .play-button-overlay {
+        .youtube-card:hover .play-button-overlay {
             opacity: 1;
-            color: #ffffff;
             transform: translate(-50%, -50%) scale(1.1);
+            color: var(--accent);
+        }
+
+        .youtube-card-title {
+            padding: 1.25rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            color: var(--text-primary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            color: #94a3b8;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: white;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            margin: 1.5rem 0;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a,
+        .footer-links li {
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.3s ease-out;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: var(--accent);
+        }
+
+        #modalTitle {
+            font-family: var(--font-display);
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-right: 30px;
+            font-size: 1.8rem;
+        }
+
+        #modalBody p {
+            display: block;
+            overflow: visible;
+            font-size: 1.1rem;
+            color: var(--text-primary);
         }
 
         .video-modal-content {
             padding: 0;
             background-color: #000;
             max-width: 900px;
+            border-radius: 12px;
+            overflow: hidden;
             border: none;
         }
 
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
-            /* 16:9 Aspect Ratio */
             height: 0;
-            overflow: hidden;
         }
 
         .video-wrapper iframe {
@@ -397,19 +715,7 @@
             height: 100%;
         }
 
-        #videoModal .close-btn {
-            color: #fff;
-            z-index: 10;
-            top: 10px;
-            right: 15px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        #videoModal .close-btn:hover {
-            color: var(--accent-color);
-        }
-
-        /* CSS cho Dropdown Menu */
+        /* Dropdown */
         .dropdown {
             position: relative;
         }
@@ -419,185 +725,431 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--primary-color);
+            background-color: white;
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            border-radius: 0 0 5px 5px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
             z-index: 1001;
             padding: 10px 0;
             flex-direction: column;
-            gap: 0;
         }
 
         .dropdown:hover .dropdown-menu {
             display: flex;
-            animation: fadeInMenu 0.3s ease-in-out;
+            animation: fadeInUp 0.2s ease-out;
         }
 
         .dropdown-menu li a {
-            padding: 12px 20px;
+            padding: 10px 20px;
             display: block;
-            width: 100%;
+            color: var(--text-primary);
         }
 
         .dropdown-menu li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--accent-color);
+            background-color: var(--bg-secondary);
+            color: var(--primary);
         }
 
-        @keyframes fadeInMenu {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .navbar-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-lg);
+                display: none;
+            }
+
+            .navbar-menu.active {
+                display: flex;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                border: none;
+                background: var(--bg-secondary);
+                display: none;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: flex;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">NN<span>Tools</span>.vn</div>
-        <nav>
-            <ul>
-                <li><a href="#trang-chu">Trang Chủ</a></li>
-                <li><a href="#giai-phap">Giải Pháp</a></li>
-                <li><a href="#phan-mem">Phần Mềm</a></li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)">Thư Viện ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://www.thietketudien.vn/" target="_blank">ThietKeTuDienVN</a></li>
-                        <li><a href="https://blog.thietketudien.vn/" target="_blank">Blog</a></li>
-                        <li><a href="https://www.lispcad.com/" target="_blank">LispCAD</a></li>
+    <!-- FABs -->
+    <div class="floating-actions">
+        <a href="https://zalo.me/0976018272" target="_blank" class="fab-button zalo-btn" title="Chat Zalo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2c-.16.533.36 1.052.893.893l3.031-.892A9.954 9.954 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+                    fill="currentColor" />
+            </svg>
+        </a>
+        <a href="https://m.me/dn2.dn2/" target="_blank" class="fab-button facebook-btn" title="Facebook">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                    fill="currentColor" />
+            </svg>
+        </a>
+        <a href="tel:0976018272" class="fab-button phone-btn" title="Hotline">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"
+                    fill="currentColor" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">NN<span>Tools</span>.vn</a>
+
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <div class="navbar-menu" id="navbarMenu">
+                    <ul class="nav-links">
+                        <li><a href="#trang-chu" class="nav-link">Trang Chủ</a></li>
+                        <li><a href="#giai-phap" class="nav-link">Giải Pháp</a></li>
+                        <li><a href="#video-demo" class="nav-link">Hướng Dẫn</a></li>
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" class="nav-link">Thư Viện ▾</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="https://www.thietketudien.vn/" target="_blank">ThietKeTuDienVN</a></li>
+                                <li><a href="https://blog.thietketudien.vn/" target="_blank">Blog Kỹ Thuật</a></li>
+                                <li><a href="https://www.lispcad.com/" target="_blank">LispCAD</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li><a href="#lien-he">Liên Hệ</a></li>
-            </ul>
+                    <div class="nav-actions">
+                        <a href="https://zalo.me/0976018272" target="_blank" class="btn btn-primary">Tải về</a>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section id="trang-chu" class="hero">
-            <h1>Nền Tảng Tiên Phong Trong Thiết Kế Tủ Bảng Điện</h1>
-            <p>Cung cấp các công cụ tự động hóa mạnh mẽ và giải pháp kỹ thuật chuyên sâu. Tối ưu hóa quy trình thiết kế,
-                bóc tách khối lượng và triển khai bản vẽ cho các dự án công nghiệp và hàng hải.</p>
-            <a href="#giai-phap" class="btn">Khám Phá Ngay</a>
+        <!-- Hero Section -->
+        <section id="trang-chu" class="hero-section">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span>Nền Tảng Thiết Kế Tủ Bảng Điện</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Tự Động Hóa<br>
+                            <span class="gradient-text">Quy Trình</span> Thiết Kế
+                        </h1>
+                        <p class="hero-description">
+                            Cung cấp các công cụ tự động hóa mạnh mẽ và giải pháp kỹ thuật chuyên sâu. Tối ưu hóa quy
+                            trình thiết kế, bóc tách khối lượng và triển khai bản vẽ cho các dự án công nghiệp và hàng
+                            hải.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="https://zalo.me/0976018272" target="_blank" class="btn btn-primary btn-large">Tải
+                                về công cụ</a>
+                            <a href="#giai-phap" class="btn btn-outline btn-large">Khám Phá Ngay</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <img src="https://lh3.googleusercontent.com/sitesv/AG8ngQVauzxFVP-VFDN7IdZYz20chfd2C58VYGAMPjWFo719zM68hVzfQ7zvgUljQZwrXGWjpTfujW_QlMtSv4hUEf8mUcpabaxVRXKjFSXEXxHsjIb9-c3VtQClORTh_H2mtS-sCRR6rVE1pNzcwi0TP9NfAAgPWhKIMXyQFIhP6J8LbPAFDfu2R0AO78PQJmT8XJCLPyRa7y0HTZHN2h6vy1aMfxmEEJN8ztjqXqWtGb4=w1280"
+                            alt="NNTools Banner" class="floating"
+                            style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); display: block;">
+                    </div>
+                </div>
+            </div>
+            <div class="hero-background">
+                <div class="gradient-orb orb-1"></div>
+                <div class="gradient-orb orb-2"></div>
+            </div>
         </section>
 
-        <section id="giai-phap" class="solutions">
-            <h2 class="section-title">Giải Pháp & Hệ Sinh Thái</h2>
-            <div class="grid-container">
-                <!-- Thẻ 1 -->
-                <div class="card" onclick="openModal(this)">
-                    <h3>Thiết Kế Tủ Điện Chuyên Nghiệp</h3>
-                    <p>
-                        Cung cấp tài nguyên, bản vẽ mẫu và tiêu chuẩn thiết kế tủ bảng điện đáp ứng các yêu cầu khắt khe
-                        trong công nghiệp và hệ thống điện tàu biển.<br><br>
-                        <strong>Chi tiết dịch vụ:</strong><br>
-                        - Tư vấn và thiết kế các loại tủ điện phân phối, tủ điều khiển tự động hóa.<br>
-                        - Thiết kế hệ thống điện hàng hải, tủ điện tàu biển tuân thủ nghiêm ngặt các quy chuẩn an
-                        toàn.<br>
-                        - Bóc tách khối lượng vật tư (BOM) chính xác và tối ưu chi phí.<br>
-                        - Hỗ trợ kỹ thuật và cung cấp thư viện bản vẽ đồ sộ thông qua mạng lưới ThietKeTuDien.vn.
-                    </p>
+        <!-- Solutions -->
+        <section id="giai-phap" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Hệ Sinh Thái NNTools</span>
+                    <h2 class="section-title">Giải Pháp Tiên Phong</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.125rem;">Lựa chọn bộ công cụ phù hợp để tăng
+                        tốc hiệu suất công việc của bạn</p>
                 </div>
-                <!-- Thẻ 2 -->
-                <div class="card" onclick="openModal(this)">
-                    <h3>Công Cụ Tự Động Hóa (AutoCAD/Excel)</h3>
-                    <p>
-                        Phát triển các tiện ích Add-in bằng AutoLISP, VBA, và C# .NET giúp tăng tốc độ vẽ, tự động hóa
-                        tính toán kích thước và layout linh kiện nhanh chóng.<br><br>
-                        <strong>Tính năng nổi bật:</strong><br>
-                        - Tool tự động tính toán và vẽ kích thước vỏ tủ điện, sắp xếp layout thiết bị thông minh.<br>
-                        - Add-in Excel liên kết hai chiều với AutoCAD để xuất/nhập danh sách linh kiện thiết kế.<br>
-                        - Bộ công cụ hỗ trợ thiết kế NhatNguyenTools giúp tối ưu thiết kế mạch điện và bóc tách vật
-                        tư.<br>
-                        - Xóa bỏ các thao tác lặp đi lặp lại, tiết kiệm lên đến 80% thời gian triển khai bản vẽ so với
-                        phương pháp thủ công.
-                    </p>
-                </div>
-                <!-- Thẻ 3 -->
-                <div class="card" onclick="openModal(this)">
-                    <h3>Batch Plot Pro (ABP)</h3>
-                    <p>
-                        Giải pháp phần mềm in ấn hàng loạt mạnh mẽ nhất dành cho kỹ sư. Xử lý xuất bản vẽ tự động, quản
-                        lý thông minh và tiết kiệm hàng giờ đồng hồ làm việc.<br><br>
-                        <strong>Điểm mạnh của ABP (Version 15.0+):</strong><br>
-                        - In hàng loạt bản vẽ AutoCAD ra định dạng PDF hoặc gửi trực tiếp tới máy in giấy chỉ với 1
-                        click chuột.<br>
-                        - Thuật toán nhận diện khung tên thông minh, tự động cắt và xoay bản vẽ đúng tỷ lệ chuẩn.<br>
-                        - Tự động lấy Text/Block trong khung tên để đặt tên cho file xuất ra (Ví dụ: Số thứ tự_Tên bản
-                        vẽ.pdf).<br>
-                        - Hiệu suất cao, hoạt động nhẹ nhàng và tương thích hoàn hảo với nhiều phiên bản AutoCAD.
-                    </p>
-                </div>
-                <!-- Thẻ 4 -->
-                <div class="card" onclick="openModal(this)">
-                    <h3>Tích Hợp AI & Nhận Dạng Dữ Liệu</h3>
-                    <p>
-                        Ứng dụng công nghệ OCR và trí tuệ nhân tạo để trích xuất dữ liệu từ bản vẽ PDF, tự động hóa
-                        luồng công việc số hóa bản vẽ kỹ thuật.<br><br>
-                        <strong>Ứng dụng thực tế:</strong><br>
-                        - Tích hợp Gemini API và công nghệ PaddleOCR để quét, đọc và bóc tách chữ từ các bản vẽ kỹ thuật
-                        định dạng PDF/Image.<br>
-                        - Chuyển đổi dữ liệu bản cứng thành cơ sở dữ liệu số trên Excel nhanh chóng.<br>
-                        - Phục vụ quá trình tra cứu kỹ thuật, bóc tách vật tư cho các kỹ sư điện trong quá trình thiết
-                        kế và báo giá.
-                    </p>
+
+                <div class="services-grid">
+                    <div class="service-card" onclick="openModal(this)">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Thiết Kế Tủ Điện Chuyên Nghiệp</h3>
+                        <p>
+                            Cung cấp tài nguyên, bản vẽ mẫu và tiêu chuẩn thiết kế tủ bảng điện đáp ứng các yêu cầu khắt
+                            khe trong công nghiệp và hệ thống điện tàu biển.<br><br>
+                            <strong>Chi tiết dịch vụ:</strong><br>
+                            - Tư vấn và thiết kế các loại tủ điện phân phối, tủ điều khiển tự động hóa.<br>
+                            - Thiết kế hệ thống điện hàng hải, tủ điện tàu biển tuân thủ nghiêm ngặt các quy chuẩn an
+                            toàn.<br>
+                            - Bóc tách khối lượng vật tư (BOM) chính xác và tối ưu chi phí.<br>
+                            - Hỗ trợ kỹ thuật và cung cấp thư viện bản vẽ đồ sộ thông qua mạng lưới ThietKeTuDien.vn.
+                        </p>
+                    </div>
+
+                    <div class="service-card" onclick="openModal(this)">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M9 3v18M3 9h18M3 15h18M15 3v18" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Công Cụ Tự Động Hóa (AutoCAD/Excel)</h3>
+                        <p>
+                            Phát triển các tiện ích Add-in bằng AutoLISP, VBA, và C# .NET giúp tăng tốc độ vẽ, tự động
+                            hóa tính toán kích thước và layout linh kiện nhanh chóng.<br><br>
+                            <strong>Tính năng nổi bật:</strong><br>
+                            - Tool tự động tính toán và vẽ kích thước vỏ tủ điện, sắp xếp layout thiết bị thông
+                            minh.<br>
+                            - Add-in Excel liên kết hai chiều với AutoCAD để xuất/nhập danh sách linh kiện thiết kế.<br>
+                            - Bộ công cụ hỗ trợ thiết kế NhatNguyenTools giúp tối ưu thiết kế mạch điện và bóc tách vật
+                            tư.<br>
+                            - Xóa bỏ các thao tác lặp đi lặp lại, tiết kiệm lên đến 80% thời gian.
+                        </p>
+                    </div>
+
+                    <div class="service-card" onclick="openModal(this)">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                                <polyline points="10 9 9 9 8 9" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Batch Plot Pro (ABP)</h3>
+                        <p>
+                            Giải pháp phần mềm in ấn hàng loạt mạnh mẽ nhất dành cho kỹ sư. Xử lý xuất bản vẽ tự động,
+                            quản lý thông minh và tiết kiệm hàng giờ đồng hồ làm việc.<br><br>
+                            <strong>Điểm mạnh của ABP (Version 15.0+):</strong><br>
+                            - In hàng loạt bản vẽ AutoCAD ra định dạng PDF hoặc gửi trực tiếp tới máy in giấy chỉ với 1
+                            click chuột.<br>
+                            - Thuật toán nhận diện khung tên thông minh, tự động cắt và xoay bản vẽ đúng tỷ lệ
+                            chuẩn.<br>
+                            - Tự động lấy Text/Block trong khung tên để đặt tên cho file xuất ra.<br>
+                            - Hiệu suất cao, hoạt động nhẹ nhàng và tương thích tốt.
+                        </p>
+                    </div>
+
+                    <div class="service-card" onclick="openModal(this)">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 16v-4M12 8h.01" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Tích Hợp AI & Nhận Dạng Dữ Liệu</h3>
+                        <p>
+                            Ứng dụng công nghệ OCR và trí tuệ nhân tạo để trích xuất dữ liệu từ bản vẽ PDF, tự động hóa
+                            luồng công việc số hóa bản vẽ kỹ thuật.<br><br>
+                            <strong>Ứng dụng thực tế:</strong><br>
+                            - Tích hợp Gemini API và công nghệ PaddleOCR để quét, đọc và bóc tách chữ từ các bản vẽ kỹ
+                            thuật định dạng PDF/Image.<br>
+                            - Chuyển đổi dữ liệu bản cứng thành cơ sở dữ liệu số trên Excel nhanh chóng.<br>
+                            - Phục vụ quá trình tra cứu kỹ thuật, bóc tách vật tư cho các kỹ sư điện trong quá trình
+                            thiết kế và báo giá.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Videos -->
         <section id="video-demo" class="video-section">
-            <h2 class="section-title">Video Giới Thiệu NhatNguyenTools</h2>
-            <div class="video-grid" id="videoGridContainer">
-                <!-- Danh sách Video - Chỉ cần cung cấp ID và Tiêu đề -->
-                <div class="youtube-card" data-video-id="2BB229CVA78"
-                    data-title="Giới thiệu công cụ cơ bản vẽ mạch điện trên AUTOCAD"></div>
-                <div class="youtube-card" data-video-id="9XuMzrcg_k0" data-title="Lệnh KTCRL, KTCRL, SYNCRL"></div>
-                <div class="youtube-card" data-video-id="orgebQHk0ps" data-title="Lệnh TKPLCIN, TKPLCOUT, SYNPLC"></div>
-                <div class="youtube-card" data-video-id="q36m80DAvyU" data-title="Lệnh SYNTF"></div>
-                <div class="youtube-card" data-video-id="F5S2YuRpO-c" data-title="Lệnh DSTT"></div>
-                <div class="youtube-card" data-video-id="DBZ5pOkBJXk" data-title="Lệnh GBV"></div>
-                <div class="youtube-card" data-video-id="bg2mS5WIvW0" data-title="Lệnh TBV"></div>
-                <div class="youtube-card" data-video-id="SBKPYx2cQgk" data-title="Lệnh gom TEXT:GTD, GTN,GTG"></div>
-                <div class="youtube-card" data-video-id="Qxo520bD13I" data-title="Lệnh CAD2EXCEL"></div>
-                <div class="youtube-card" data-video-id="LewApLYQwDo" data-title="Lệnh KTLINKCRL"></div>
-                <div class="youtube-card" data-video-id="f-IYwXyOzRQ" data-title="Lệnh Electrical_Inserter"></div>
-                <div class="youtube-card" data-video-id="6rWAfWypCNA"
-                    data-title="Thống kê gen số trên bản vẽ thiết kế mạch điện trên AutoCAD"></div>
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Hướng Dẫn Sử Dụng</span>
+                    <h2 class="section-title">Video Demo NhatNguyenTools</h2>
+                </div>
+                <div class="video-grid" id="videoGridContainer">
+                    <div class="youtube-card" data-video-id="2BB229CVA78"
+                        data-title="Giới thiệu công cụ cơ bản vẽ mạch điện"></div>
+                    <div class="youtube-card" data-video-id="9XuMzrcg_k0" data-title="Lệnh KTCRL, KTCRL, SYNCRL"></div>
+                    <div class="youtube-card" data-video-id="orgebQHk0ps" data-title="Lệnh TKPLCIN, TKPLCOUT, SYNPLC">
+                    </div>
+                    <div class="youtube-card" data-video-id="q36m80DAvyU" data-title="Lệnh SYNTF"></div>
+                    <div class="youtube-card" data-video-id="F5S2YuRpO-c" data-title="Lệnh DSTT"></div>
+                    <div class="youtube-card" data-video-id="DBZ5pOkBJXk" data-title="Lệnh GBV"></div>
+                    <div class="youtube-card" data-video-id="bg2mS5WIvW0" data-title="Lệnh TBV"></div>
+                    <div class="youtube-card" data-video-id="SBKPYx2cQgk" data-title="Lệnh gom TEXT: GTD, GTN, GTG">
+                    </div>
+                    <div class="youtube-card" data-video-id="Qxo520bD13I" data-title="Lệnh CAD2EXCEL"></div>
+                    <div class="youtube-card" data-video-id="LewApLYQwDo" data-title="Lệnh KTLINKCRL"></div>
+                    <div class="youtube-card" data-video-id="f-IYwXyOzRQ" data-title="Lệnh Electrical_Inserter"></div>
+                    <div class="youtube-card" data-video-id="6rWAfWypCNA"
+                        data-title="Thống kê gen số trên bản vẽ thiết kế mạch điện"></div>
+                </div>
             </div>
         </section>
 
-        <section id="phan-mem" class="tech-stack">
-            <h2 style="margin-bottom: 20px; color: #fff;">Được Phát Triển Bởi Nhất Nguyễn</h2>
-            <p>Với nhiều năm kinh nghiệm thực chiến, chúng tôi không chỉ thiết kế tủ điện mà còn lập trình ra các công
-                cụ để giải quyết chính những nỗi đau của người kỹ sư.</p>
-            <p>Hệ thống được vận hành và liên kết chặt chẽ với nền tảng chia sẻ kiến thức
-                <strong>ThietKeTuDien.vn</strong>.
-            </p>
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-card">
+                    <h2 class="cta-title">Sẵn Sàng Nâng Cấp Quy Trình Làm Việc?</h2>
+                    <p class="cta-description">
+                        Với nhiều năm kinh nghiệm thực chiến, chúng tôi không chỉ thiết kế tủ điện mà còn lập trình ra
+                        các công cụ để giải quyết chính những nỗi đau của người kỹ sư.
+                    </p>
+                    <div class="cta-actions">
+                        <a href="https://zalo.me/0976018272" target="_blank" class="btn btn-primary btn-large">Tải bộ
+                            cài đặt ngay</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer id="lien-he">
-        <p>&copy; 2026 NNTools.vn - Designed by Nhất Nguyễn.</p>
-        <p>Trụ sở: Hà Nội, Việt Nam</p>
-        <div class="footer-links">
-            <p>Liên hệ hợp tác: <a href="mailto:thietketudienvn@gmail.com">thietketudienvn@gmail.com</a></p>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <a href="#" class="logo" style="margin-bottom: 1rem; display: block;">NN<span>Tools</span>.vn</a>
+                    <p class="footer-description">
+                        Nền tảng tiên phong cung cấp giải pháp tự động hóa thiết kế tủ bảng điện. Được vận hành và liên
+                        kết chặt chẽ với cộng đồng ThietKeTuDien.vn.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Sản phẩm & Giải pháp</h4>
+                    <ul class="footer-links">
+                        <li><a href="#giai-phap">Thiết Kế Tủ Điện</a></li>
+                        <li><a href="#giai-phap">AutoCAD Addins</a></li>
+                        <li><a href="#giai-phap">Batch Plot Pro</a></li>
+                        <li><a href="#giai-phap">AI & Nhận dạng dữ liệu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Thư viện & Liên kết</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.thietketudien.vn/" target="_blank">ThietKeTuDienVN</a></li>
+                        <li><a href="https://blog.thietketudien.vn/" target="_blank">Blog Kỹ Thuật</a></li>
+                        <li><a href="https://www.lispcad.com/" target="_blank">LispCAD</a></li>
+                        <li><a href="#video-demo">Video Hướng Dẫn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-contact">
+                    <h4>Liên hệ</h4>
+                    <ul class="footer-links">
+                        <li>📍 Trụ sở: Hà Nội, Việt Nam</li>
+                        <li>✉️ <a href="mailto:thietketudienvn@gmail.com">thietketudienvn@gmail.com</a></li>
+                        <!-- Thêm thông tin liên hệ của bạn tại đây -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 NNTools.vn - Designed by Nhất Nguyễn.</div>
+            </div>
         </div>
     </footer>
 
-    <!-- Cấu trúc Modal HTML -->
+    <!-- Service Modal -->
     <div id="serviceModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h2 id="modalTitle">Tiêu đề</h2>
-            <div id="modalBody" style="font-size: 1.1rem; color: #444; line-height: 1.6;">Nội dung</div>
+            <div id="modalBody">Nội dung</div>
         </div>
     </div>
 
     <!-- Video Modal -->
     <div id="videoModal" class="modal">
         <div class="modal-content video-modal-content">
-            <span class="close-btn" onclick="closeVideoModal()">&times;</span>
+            <span class="close-btn" onclick="closeVideoModal()"
+                style="color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); z-index: 10;">&times;</span>
             <div class="video-wrapper">
                 <iframe id="youtubePlayer" src="" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -606,51 +1158,55 @@
         </div>
     </div>
 
-    <!-- JavaScript để xử lý Popup -->
+    <!-- Scripts -->
     <script>
-        // Hàm mở Popup và lấy dữ liệu từ card được click
-        function openModal(element) {
-            // Lấy nội dung text từ thẻ h3 và HTML bên trong thẻ p của card
-            var title = element.querySelector('h3').innerText;
-            var content = element.querySelector('p').innerHTML;
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobileMenuToggle');
+        const navbarMenu = document.getElementById('navbarMenu');
+        menuToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
 
-            // Gán vào Modal
+        // Đóng menu khi click vào link trên mobile
+        const navLinks = document.querySelectorAll('.nav-links .nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navbarMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Service Modal
+        function openModal(element) {
+            var title = element.querySelector('.service-title').innerText;
+            var content = element.querySelector('p').innerHTML;
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalBody').innerHTML = content;
-
-            // Hiển thị Modal
             document.getElementById('serviceModal').style.display = 'block';
         }
 
-        // Hàm đóng Popup khi nhấn nút X
         function closeModal() {
             document.getElementById('serviceModal').style.display = 'none';
         }
 
-        // Đóng Popup khi click ra ngoài khung nội dung
+        // Click outside to close modals
         window.onclick = function (event) {
             var serviceModal = document.getElementById('serviceModal');
             var videoModal = document.getElementById('videoModal');
-
-            if (event.target == serviceModal) {
-                serviceModal.style.display = "none";
-            }
-            if (event.target == videoModal) {
-                closeVideoModal();
-            }
+            if (event.target == serviceModal) { serviceModal.style.display = "none"; }
+            if (event.target == videoModal) { closeVideoModal(); }
         }
 
-        // Hàm tự động trích xuất ID Youtube từ mọi loại link
+        // Youtube ID Extractor
         function extractYoutubeId(urlOrId) {
             if (!urlOrId) return "";
-            if (/^[a-zA-Z0-9_-]{11}$/.test(urlOrId)) {
-                return urlOrId;
-            }
+            if (/^[a-zA-Z0-9_-]{11}$/.test(urlOrId)) return urlOrId;
             var match = urlOrId.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]{11})/);
             return match ? match[1] : urlOrId;
         }
 
-        // Xử lý Video Modal
+        // Video Modal
         function openVideoModal(videoId) {
             document.getElementById('youtubePlayer').src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
             document.getElementById('videoModal').style.display = 'block';
@@ -661,7 +1217,7 @@
             document.getElementById('youtubePlayer').src = "";
         }
 
-        // Tự động render nội dung cho các thẻ youtube-card
+        // Render Youtube Cards
         document.addEventListener('DOMContentLoaded', function () {
             var youtubeCards = document.querySelectorAll('.youtube-card');
             youtubeCards.forEach(function (card) {
@@ -669,25 +1225,20 @@
                 var videoId = extractYoutubeId(rawId);
                 var title = card.getAttribute('data-title');
 
-                // Tạo cấu trúc HTML
                 card.innerHTML = `
                     <div class="video-thumbnail-container">
                         <img src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg" alt="${title}">
                         <div class="play-button-overlay">▶</div>
                     </div>
-                    <div style="padding: 15px; text-align: left;">
-                        <h3 style="margin-bottom: 0; font-size: 1.1rem; color: var(--primary-color);">${title}</h3>
-                    </div>
+                    <div class="youtube-card-title">${title}</div>
                 `;
 
-                // Gắn sự kiện click mở popup
                 card.addEventListener('click', function () {
                     openVideoModal(videoId);
                 });
             });
         });
     </script>
-
 </body>
 
 </html>
