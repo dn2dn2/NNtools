@@ -82,7 +82,7 @@
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            transition: var(--transition-base);
+            transition: background-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base), color var(--transition-base), border-color var(--transition-base);
             font-family: var(--font-body);
             border: none;
         }
@@ -223,7 +223,7 @@
             height: 3px;
             background-color: var(--text-primary);
             border-radius: 3px;
-            transition: 0.3s;
+            transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
         }
 
         /* Hero */
@@ -422,7 +422,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             border: 2px solid var(--border);
             text-align: center;
-            transition: all 0.3s;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             height: 100%;
         }
@@ -480,7 +480,7 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--border);
-            transition: all 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
 
@@ -526,7 +526,7 @@
             color: var(--primary);
             font-size: 24px;
             opacity: 0.8;
-            transition: all 0.3s;
+            transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
         }
 
         .youtube-card:hover .play-button-overlay {
@@ -754,12 +754,10 @@
 
         /* Animations */
         @keyframes float {
-
             0%,
             100% {
                 transform: translateY(0px);
             }
-
             50% {
                 transform: translateY(-20px);
             }
@@ -770,12 +768,28 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        /* --- Scroll Trigger Animation CSS --- */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        /* ----------------------------------- */
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -948,7 +962,7 @@
         <!-- Solutions -->
         <section id="giai-phap" class="services-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal-on-scroll">
                     <span class="section-badge">Hệ Sinh Thái NNTools</span>
                     <h2 class="section-title">Giải Pháp Tiên Phong</h2>
                     <p style="color: var(--text-secondary); font-size: 1.125rem;">Lựa chọn bộ công cụ phù hợp để tăng
@@ -956,7 +970,7 @@
                 </div>
 
                 <div class="services-grid">
-                    <div class="service-card" onclick="openModal(this)">
+                    <div class="service-card reveal-on-scroll" onclick="openModal(this)">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
@@ -976,7 +990,7 @@
                         </p>
                     </div>
 
-                    <div class="service-card" onclick="openModal(this)">
+                    <div class="service-card reveal-on-scroll delay-100" onclick="openModal(this)">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
@@ -998,7 +1012,7 @@
                         </p>
                     </div>
 
-                    <div class="service-card" onclick="openModal(this)">
+                    <div class="service-card reveal-on-scroll delay-200" onclick="openModal(this)">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
@@ -1023,7 +1037,7 @@
                         </p>
                     </div>
 
-                    <div class="service-card" onclick="openModal(this)">
+                    <div class="service-card reveal-on-scroll delay-300" onclick="openModal(this)">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
@@ -1050,26 +1064,26 @@
         <!-- Videos -->
         <section id="video-demo" class="video-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal-on-scroll">
                     <span class="section-badge">Hướng Dẫn Sử Dụng</span>
                     <h2 class="section-title">Video Demo NhatNguyenTools</h2>
                 </div>
                 <div class="video-grid" id="videoGridContainer">
-                    <div class="youtube-card" data-video-id="2BB229CVA78"
+                    <div class="youtube-card reveal-on-scroll" data-video-id="2BB229CVA78"
                         data-title="Giới thiệu công cụ cơ bản vẽ mạch điện"></div>
-                    <div class="youtube-card" data-video-id="9XuMzrcg_k0" data-title="Lệnh KTCRL, KTCRL, SYNCRL"></div>
-                    <div class="youtube-card" data-video-id="orgebQHk0ps" data-title="Lệnh TKPLCIN, TKPLCOUT, SYNPLC">
-                    </div>
-                    <div class="youtube-card" data-video-id="q36m80DAvyU" data-title="Lệnh SYNTF"></div>
-                    <div class="youtube-card" data-video-id="F5S2YuRpO-c" data-title="Lệnh DSTT"></div>
-                    <div class="youtube-card" data-video-id="DBZ5pOkBJXk" data-title="Lệnh GBV"></div>
-                    <div class="youtube-card" data-video-id="bg2mS5WIvW0" data-title="Lệnh TBV"></div>
-                    <div class="youtube-card" data-video-id="SBKPYx2cQgk" data-title="Lệnh gom TEXT: GTD, GTN, GTG">
-                    </div>
-                    <div class="youtube-card" data-video-id="Qxo520bD13I" data-title="Lệnh CAD2EXCEL"></div>
-                    <div class="youtube-card" data-video-id="LewApLYQwDo" data-title="Lệnh KTLINKCRL"></div>
-                    <div class="youtube-card" data-video-id="f-IYwXyOzRQ" data-title="Lệnh Electrical_Inserter"></div>
-                    <div class="youtube-card" data-video-id="6rWAfWypCNA"
+                    <div class="youtube-card reveal-on-scroll delay-100" data-video-id="9XuMzrcg_k0" data-title="Lệnh KTCRL, KTCRL, SYNCRL"></div>
+                    <div class="youtube-card reveal-on-scroll delay-200" data-video-id="orgebQHk0ps" data-title="Lệnh TKPLCIN, TKPLCOUT, SYNPLC"></div>
+                    <div class="youtube-card reveal-on-scroll delay-300" data-video-id="q36m80DAvyU" data-title="Lệnh SYNTF"></div>
+                    
+                    <div class="youtube-card reveal-on-scroll" data-video-id="F5S2YuRpO-c" data-title="Lệnh DSTT"></div>
+                    <div class="youtube-card reveal-on-scroll delay-100" data-video-id="DBZ5pOkBJXk" data-title="Lệnh GBV"></div>
+                    <div class="youtube-card reveal-on-scroll delay-200" data-video-id="bg2mS5WIvW0" data-title="Lệnh TBV"></div>
+                    <div class="youtube-card reveal-on-scroll delay-300" data-video-id="SBKPYx2cQgk" data-title="Lệnh gom TEXT: GTD, GTN, GTG"></div>
+                    
+                    <div class="youtube-card reveal-on-scroll" data-video-id="Qxo520bD13I" data-title="Lệnh CAD2EXCEL"></div>
+                    <div class="youtube-card reveal-on-scroll delay-100" data-video-id="LewApLYQwDo" data-title="Lệnh KTLINKCRL"></div>
+                    <div class="youtube-card reveal-on-scroll delay-200" data-video-id="f-IYwXyOzRQ" data-title="Lệnh Electrical_Inserter"></div>
+                    <div class="youtube-card reveal-on-scroll delay-300" data-video-id="6rWAfWypCNA"
                         data-title="Thống kê gen số trên bản vẽ thiết kế mạch điện"></div>
                 </div>
             </div>
@@ -1078,7 +1092,7 @@
         <!-- CTA Section -->
         <section class="cta-section">
             <div class="container">
-                <div class="cta-card">
+                <div class="cta-card reveal-on-scroll">
                     <h2 class="cta-title">Sẵn Sàng Nâng Cấp Quy Trình Làm Việc?</h2>
                     <p class="cta-description">
                         Với nhiều năm kinh nghiệm thực chiến, chúng tôi không chỉ thiết kế tủ điện mà còn lập trình ra
@@ -1237,6 +1251,30 @@
                 card.addEventListener('click', function () {
                     openVideoModal(videoId);
                 });
+            });
+        });
+
+        // Tính năng nhận diện cuộn chuột (Intersection Observer)
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // Kích hoạt khi 15% phần tử xuất hiện trên màn hình
+            };
+
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Nếu chỉ muốn hiệu ứng chạy 1 lần duy nhất, bạn có thể bỏ comment dòng bên dưới
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            revealElements.forEach((el) => {
+                scrollObserver.observe(el);
             });
         });
     </script>
